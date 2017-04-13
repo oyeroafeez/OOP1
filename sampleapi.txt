@@ -1,0 +1,44 @@
+var request = require('superagent');
+
+request.post('/bookflight/')
+  .send({'name': 'Ann,'sex':'female', 'date': '2017-03-24','time':'20:00 GMT','ticket number':'AIL/34825GH'})
+  .type('application/json')
+  .accept('json')
+  .end(function(err, res) {
+    if (err) {
+      console.log('Error!');
+    } else {
+      console.log(res.body);
+    }
+  });
+  request.get('/bookflight')
+  .query({start: '2017-03-10', end: '2017-04-05'})
+  .accept('json')
+  .end(function(err, res) {
+    if (err) {
+      console.log('Error!');
+    }  else {
+      console.log(res.body);
+	}
+});
+request.post('/rescheduleflight/')
+  .send({'ticket number':'AIL/34825GH', 'new date':'2017-03-24','new time':'19:00 GMT'})
+  .type('application/json')
+  .accept('json')
+  .end(function(err, res) {
+    if (err) {
+      console.log('Error!');
+    } else {
+      console.log(res.body);
+    }
+  });
+  request.get('/rescheduleflight')
+  .query({start: '2017-02-09', end: '2017-03-05'})
+  .accept('json')
+  .end(function(err, res) {
+    if (err) {
+      console.log('Error!');
+    }  else {
+      console.log(res.body);
+	}
+});
